@@ -14,7 +14,7 @@ planets = {
 }
 
 while True:
-    choice = input("Where do you want to go? (1 = Moon, 2 = Mars, 3 = Jupiter, 4 = Black Hole): ").strip()
+    choice = input("\nWhere do you want to go? (1 = Moon, 2 = Mars, 3 = Jupiter, 4 = Black Hole): ").strip()
 
     if choice not in planets:
         print("Please choose only from the given options: 1, 2, 3, or 4.")
