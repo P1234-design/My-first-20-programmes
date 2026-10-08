@@ -1,7 +1,15 @@
 print("INTERGALACTIC WEIGHT CALCULATOR ")
 earth_weight= float(input('Write your weight on earth (in kg):- '))
 print("Planets: 1.Moon 2.Mars 3.Jupiter 4. Black Hole (super gravity)")
-choice = input("Where you want to go (1/2/3/4)? \n:")
+while True:
+    try:
+        choice = input("Where you want to go (1/2/3/4)? \n:")
+        if choice <='0':
+            print("Please! give only from options.")
+            continue
+    except ValuError:
+        print("ERROR! Please give only number ,your input is valid.")
+            
 
 if choice == '1':
     weight= earth_weight*0.165
