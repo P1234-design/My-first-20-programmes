@@ -1,29 +1,30 @@
-print("INTERGALACTIC WEIGHT CALCULATOR ")
-earth_weight= float(input('Write your weight on earth (in kg):- '))
-print("Planets: 1.Moon 2.Mars 3.Jupiter 4. Black Hole (super gravity)")
-while True:
-    try:
-        choice = input("Where you want to go (1/2/3/4)? \n:")
-        if choice <='0':
-            print("Please! give only from options.")
-            continue
-    except ValuError:
-        print("ERROR! Please give only number ,your input is valid.")
-            
+print("INTERGALACTIC WEIGHT CALCULATOR")
 
-if choice == '1':
-    weight= earth_weight*0.165
-    print(f"On Moon your weight is :- {weight:.3f}kg")
-    
-elif choice == '2':
-    weight= earth_weight*0.377
-    print(f"On Mars your weight is :- {weight:.3f}kg")
-    
-elif choice == '3':
-    weight= earth_weight*2.34
-    print(f"On jupiter your weight is :- {weight:.3f}kg (aap dab jayenge!)")
-    
-elif choice == '4':
-    print("In Black Hole the gravity is infnite so weight also infinite, So you  are spaghettified !")
-else:
-    print("Space ship's navigation burst out! your input is wrong.")
+try:
+    earth_weight = float(input("Write your weight on Earth (in kg): "))
+except ValueError:
+    print("ERROR! Please enter a valid number.")
+    raise SystemExit
+
+planets = {
+    "1": ("Moon", 0.165),
+    "2": ("Mars", 0.377),
+    "3": ("Jupiter", 2.34),
+    "4": ("Black Hole", None)
+}
+
+while True:
+    choice = input("Where do you want to go? (1 = Moon, 2 = Mars, 3 = Jupiter, 4 = Black Hole): ").strip()
+
+    if choice not in planets:
+        print("Please choose only from the given options: 1, 2, 3, or 4.")
+        continue
+
+    if choice == "4":
+        print("In a Black Hole, gravity is infinite, so your weight is effectively infinite. You are spaghettified!")
+        break
+
+    planet, gravity = planets[choice]
+    weight = earth_weight * gravity
+    print(f"On {planet}, your weight is: {weight:.3f} kg")
+    break
